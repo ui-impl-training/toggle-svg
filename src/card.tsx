@@ -17,11 +17,13 @@ interface Props extends PassedProps {}
 
 const Component = (props: Props) => (
   <div className={props.className} onClick={props.handleClick}>
-    <div className="logo"></div>
+    <div className="logoWrapper">
+      <img src={props.icon}></img>
+    </div>
     <div className="content">
-      <p>{props.title}</p>
+      <p className="title">{props.title}</p>
       <p>{props.description}</p>
-      <p>{props.cost}</p>
+      <p className="cost">{props.cost}</p>
     </div>
     <div className="check">
       {props.selected ? <CheckCircle></CheckCircle> : <Circle></Circle>}
@@ -31,13 +33,31 @@ const Component = (props: Props) => (
 
 const StyledComponent = styled(Component)`
   border: solid 1px black;
+  border-color: ${(props) => (props.selected ? "blue" : "gray")};
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 8px;
+  border-radius: 8px;
+  & > .logoWrapper {
+    width: 33%;
+    height: 33%;
+    > img {
+      width: 100%;
+    }
+  }
+  & > .content {
+    width: 57%;
+    & > .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    & > .cost {
+      color: ${(props) => (props.selected ? "blue" : "gray")};
+    }
+  }
   & > .check {
-    height: 16px;
-    width: 16px;
+    width: 10%;
   }
 `;
 

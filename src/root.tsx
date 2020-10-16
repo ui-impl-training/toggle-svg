@@ -2,6 +2,8 @@ import { h } from "preact";
 import { useState } from "preact/compat";
 import { styled } from "goober";
 import { Card } from "./card";
+import PersonalImage from "./icon/personal.png";
+import EnterpriseImage from "./icon/enterprise.png";
 
 type CardType = "Personal" | "Enterprise";
 
@@ -21,7 +23,7 @@ const Component = (props: Props) => (
       title="For myself"
       description="write better. Think more clearly. Stay organized."
       cost="Free for 1 person"
-      icon="g"
+      icon={PersonalImage}
       selected={props.selectedCard === "Personal"}
       handleClick={() => {
         props.selectCard("Personal");
@@ -29,10 +31,10 @@ const Component = (props: Props) => (
     ></Card>
     <Card
       className="card"
-      title="s"
-      description="e"
-      cost="e"
-      icon="g"
+      title="With my team"
+      description="Wikis, docs, tasks & projects, all in one place."
+      cost="Start for free"
+      icon={EnterpriseImage}
       selected={props.selectedCard === "Enterprise"}
       handleClick={() => {
         props.selectCard("Enterprise");

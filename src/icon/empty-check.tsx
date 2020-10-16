@@ -1,5 +1,5 @@
 import { h } from "preact";
-const Circle = ({ size = 16, color = "#000000" }) => (
+const Circle = ({ size = 24, color = "#000000" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}

@@ -11,6 +11,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
+      {
         test: /\.(js|ts|tsx)$/,
         use: [
           {
@@ -22,7 +30,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".css"],
+    extensions: [".js", ".ts", ".tsx", ".png"],
   },
   plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
   devServer: {

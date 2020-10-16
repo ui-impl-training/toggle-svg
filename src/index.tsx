@@ -1,3 +1,7 @@
 import { h, render } from "preact";
+import { setup } from "goober";
+import { Root } from "./root";
 
-render(<div>hello</div>, document.body);
+setup(h);
+
+render(<Root></Root>, document.body);

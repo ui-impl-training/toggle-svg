@@ -16,11 +16,11 @@ interface Props extends ContainerProps {
 
 const Component = (props: Props) => (
   <div className={props.className}>
-      {props.selectedCard}
     <Card
-      title="s"
-      description="e"
-      cost="e"
+      className="card"
+      title="For myself"
+      description="write better. Think more clearly. Stay organized."
+      cost="Free for 1 person"
       icon="g"
       selected={props.selectedCard === "Personal"}
       handleClick={() => {
@@ -28,6 +28,7 @@ const Component = (props: Props) => (
       }}
     ></Card>
     <Card
+      className="card"
       title="s"
       description="e"
       cost="e"
@@ -40,7 +41,13 @@ const Component = (props: Props) => (
   </div>
 );
 
-const StyledComponent = styled(Component)``;
+const StyledComponent = styled(Component)`
+  display: flex;
+  flex-direction: column;
+  > .card {
+    margin-top: 12px;
+  }
+`;
 
 const ContainerComponent = () => {
   const [selectedCard, selectCard] = useState<CardType>("Personal");
